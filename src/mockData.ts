@@ -1,4 +1,4 @@
-import Item from './types/fileStructure'
+import { Item } from './types/fileStructure'
 
 const mockFileStructure: Item[] = [
 	{

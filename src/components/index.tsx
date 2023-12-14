@@ -1,3 +1,4 @@
-import FileTreeItem from './FileTreeItem'
+import FileItem from './FileItem'
+import FolderItem from './FolderItem'
 
-export { FileTreeItem }
+export { FileItem, FolderItem }
