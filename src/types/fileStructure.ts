@@ -1,7 +1,7 @@
 type Item = {
 	isFile: boolean
 	name: string
-	resolution?: string
+	extension?: string
 	children?: null | Item[]
 }
 

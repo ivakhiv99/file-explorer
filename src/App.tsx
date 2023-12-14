@@ -1,12 +1,21 @@
 import Drawer from '@mui/material/Drawer'
-import './App.css'
 import Item from './types/fileStructure'
 import { FileTreeItem } from './components'
 import mockFileStructure from './mockData'
+import { styled } from 'styled-components'
+
+const Wrapper = styled.div`
+	height: 100%;
+	width: 100%;
+`
+
+const FileTreeWrapper = styled.div`
+	padding-left: 30px;
+`
 
 function App() {
 	return (
-		<div className="wrapper">
+		<Wrapper>
 			{' '}
 			<Drawer
 				sx={{
@@ -21,23 +30,25 @@ function App() {
 				anchor="left"
 			>
 				{mockFileStructure.map((item: Item) => (
-					<div>
+					<FileTreeWrapper>
 						<FileTreeItem {...item} />
-					</div>
+					</FileTreeWrapper>
 				))}
 			</Drawer>
-		</div>
+		</Wrapper>
 	)
 }
 
 export default App
+
+//npx prettier . --write
 
 // TODO:
 // 1 - define types for backend response with files and folders---------------// DONE
 //  1.1 - simulate request to backend (optional)
 //
 // 2 - render tree of items---------------------------------------------------// DONE
-//  2.1 - use different icons for files and folders
+//  2.1 - use different icons for files and folders---------------------------// DONE
 //  2.2 - add arrow icon for folders with children
 //
 // 3 - make folders with children clickable and display it's children
@@ -49,5 +60,5 @@ export default App
 //  4.3 - display path to found file/folder as a seppareate string/component
 //  4.4 - display "nothing found" message
 //
-// 5 - style all of it
-//  5.1 - add linter and pritter (optional)
+// 5 - style all of this
+//  5.1 - add linter and pritter (optional) ---------------------------------// kinda Done // still having isses forcing prettier to format on save
