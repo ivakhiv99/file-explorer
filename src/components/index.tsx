@@ -1,3 +1,3 @@
-import FileTreeItem from './FileTreeItem';
+import FileTreeItem from './FileTreeItem'
 
-export { FileTreeItem };
+export { FileTreeItem }

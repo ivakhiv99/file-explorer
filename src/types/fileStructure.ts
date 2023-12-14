@@ -1,9 +1,8 @@
-
 type Item = {
-    isFile: boolean;
-    name: string;
-    resolution?: string;
-    children?: null | Item[];
+	isFile: boolean
+	name: string
+	resolution?: string
+	children?: null | Item[]
 }
 
-export default Item;
+export default Item
