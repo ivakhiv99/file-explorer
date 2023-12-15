@@ -5,10 +5,6 @@ interface WrapperProps {
 }
 
 const ItemWrapper = styled.div<WrapperProps>`
-	//stupid react warnings
-	/* If you want to write it to the DOM, pass a string instead: isvisible="true" or isvisible={value.toString()} */
-	/* display: ${({ isvisible }) =>
-		isvisible === 'true' ? 'flex' : 'none'}; */
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -16,6 +12,9 @@ const ItemWrapper = styled.div<WrapperProps>`
 
 const ChildrenWrapper = styled(ItemWrapper)`
 	padding-left: 30px;
+	
+	//stupid react warnings
+	/* If you want to write it to the DOM, pass a string instead: isvisible="true" or isvisible={value.toString()} */
 	display: ${({ isvisible }) => (isvisible === 'true' ? 'flex' : 'none')};
 `;
 
