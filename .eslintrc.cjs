@@ -28,10 +28,11 @@ module.exports = {
 			'warn',
 			{ allowConstantExport: true },
 		],
+		semi: ['error', 'always'],
 	},
 	settings: {
 		react: {
 			version: 'detect',
 		},
 	},
-}
+};

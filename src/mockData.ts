@@ -1,27 +1,27 @@
-import { Item } from './types/fileStructure'
+import { Item } from './types/fileStructure';
 
 const mockFileStructure: Item[] = [
 	{
 		isFile: false,
-		name: 'Level 1A',
+		name: '1A',
 		children: [
 			{
 				isFile: false,
-				name: 'Level 2A1A',
+				name: '1A-2A',
 				children: null,
 			},
 			{
 				isFile: false,
-				name: 'Level 2B1A',
+				name: '1A-2B',
 				children: [
 					{
 						isFile: false,
-						name: 'Level 3A2B1A',
+						name: '1A-2B-3A',
 						children: null,
 					},
 					{
 						isFile: true,
-						name: 'Level 3B2B1A',
+						name: '1A-2B-3B',
 						extension: 'txt',
 					},
 				],
@@ -30,15 +30,15 @@ const mockFileStructure: Item[] = [
 	},
 	{
 		isFile: false,
-		name: 'Level 1B',
+		name: '1B',
 		children: [
 			{
 				isFile: false,
-				name: 'Level 2A1B',
+				name: '1B-2A',
 				children: null,
 			},
 		],
 	},
-]
+];
 
-export default mockFileStructure
+export default mockFileStructure;
