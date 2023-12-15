@@ -1,5 +1,4 @@
-import FileItem from './FileItem';
-import FolderItem from './FolderItem';
 import Search from './Search';
+import FileTree from './FileTree';
 
-export { FileItem, FolderItem, Search };
+export { Search, FileTree };

@@ -1,9 +1,9 @@
 import Drawer from '@mui/material/Drawer';
 import { Item } from './types/fileStructure';
-import { FileItem, FolderItem, Search } from './components';
+import { FileTree, Search } from './components';
 import mockFileStructure from './mockData';
 import { styled } from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { search } from './utils';
 
 const Wrapper = styled.div`
@@ -22,27 +22,12 @@ function App() {
 
 	const handleSearch = (value: string) => {
 		if (value.length) {
+			setActiveSearch(true);
 			const res = search(mockFileStructure, value);
 			setSearchResult(res);
 			console.log('search result', res);
-		}
+		} else setActiveSearch(false);
 	};
-
-	const renderFileStructute = () => {
-		const source = activeSearch ? searchResult : mockFileStructure;
-		if (source && Array.isArray(source)) {
-			return (
-				source.map((item: Item) =>
-					item.isFile ? (
-						<FileItem {...item} key={item.name} />
-					) : (
-						<FolderItem {...item} key={item.name} />
-					)
-				)
-			)
-		}
-
-	}
 
 	return (
 		<Wrapper>
@@ -61,7 +46,13 @@ function App() {
 			>
 				<FileTreeWrapper>
 					<Search handler={handleSearch} />
-					{renderFileStructute()}
+					<FileTree
+						fileSctructure={
+							activeSearch && searchResult != null
+								? [searchResult]
+								: mockFileStructure
+						}
+					/>
 				</FileTreeWrapper>
 			</Drawer>
 		</Wrapper>
@@ -87,10 +78,11 @@ export default App;
 //
 // 4 - add search input for files and folders---------------------------------// DONE
 //  4.1 - debounce the input (optional)---------------------------------------// DONE
-//  4.2 - write a hook/func for searching files/folders
-//	4.3 - display expanded folder if it has children
+//  4.2 - write a hook/func for searching files/folders-----------------------// DONE
+//	4.3 - display expanded folder if it has children--------------------------// DONE
 //  4.4 - display path to found file/folder as a seppareate string/component
 //  4.5 - display "nothing found" message
+//	4.6 - add loader for search/(debounce?) 
 //
 // 5 - style all of this
 //  5.1 - add linter and pritter (optional) ---------------------------------// kinda Done // still having isses forcing prettier to format on save
