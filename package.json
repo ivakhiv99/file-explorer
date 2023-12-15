@@ -34,7 +34,7 @@
 		"typescript": "^5.2.2",
 		"vite": "^5.0.8"
 	},
-	"description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+	"description": "Imitation of a file explorer",
 	"main": "index.js",
 	"keywords": [],
 	"author": "",

@@ -12,6 +12,7 @@ const InputWrapper = styled.div`
 
 const StyledInput = styled(Input)`
 	margin-bottom: 15px;
+	padding: 0 5px;
 `;
 
 const StyledClearIcon = styled(ClearIcon)`
@@ -40,7 +41,7 @@ const Search: FC<ISearch> = ({ handler }) => {
 	return (
 		<InputWrapper>
 			<StyledInput
-				placeholder="search"
+				placeholder="Search"
 				value={inputValue}
 				onChange={handleChange}
 			/>

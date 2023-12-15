@@ -55,7 +55,12 @@ function App() {
 			>
 				<FileTreeWrapper>
 					<Search handler={handleSearch} />
-					{activeSearch && <p>{breadcrumbs}</p>}
+					{activeSearch && searchResult === null && (
+						<p>nothing was found</p>
+					)}
+					{activeSearch && searchResult !== null && (
+						<p>{breadcrumbs}</p>
+					)}
 					<FileTree
 						fileSctructure={
 							activeSearch && searchResult != null
@@ -91,9 +96,9 @@ export default App;
 //  4.2 - write a hook/func for searching files/folders-----------------------// DONE
 //	4.3 - display expanded folder if it has children--------------------------// DONE
 //  4.4 - display path to found file/folder as a seppareate string/component--// DONE
-//  4.5 - display "nothing found" message
+//  4.5 - display "nothing found" message-------------------------------------// DONE
 //	4.6 - add loader for search/(debounce?)
 //
-// 5 - style all of this
-//  5.1 - add linter and pritter (optional) ---------------------------------// kinda Done // still having isses forcing prettier to format on save
+// 5 - style all of this------------------------------------------------------// DONE but could be better
+//  5.1 - add linter and pritter (optional) ----------------------------------// kinda Done // still having isses forcing prettier to format on save
 //  5.2 - host on gh-pages (optional)
