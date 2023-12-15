@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { File } from '../types/fileStructure';
-import { FlexRow, ItemWrapper } from '../styles/FileTree';
+import { FlexRow, ItemWrapper } from '../styles/FileTreeStyles';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import Typography from '@mui/material/Typography';
 import { CustomIcon } from '../utils';

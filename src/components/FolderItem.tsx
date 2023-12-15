@@ -1,17 +1,22 @@
 import { FC, useState } from 'react';
 import { Folder, Item } from '../types/fileStructure';
-import { ChildrenWrapper, FlexRow, ItemWrapper } from '../styles/FileTree';
+import {
+	ChildrenWrapper,
+	FlexRow,
+	ItemWrapper,
+} from '../styles/FileTreeStyles';
 import ArowIcon from './ArowIcon';
 import { CustomIcon } from '../utils';
 import FolderIcon from '@mui/icons-material/Folder';
 import Typography from '@mui/material/Typography';
-import FileItem from './FileItem';
+import FileTree from './FileTree';
 
 const FolderItem: FC<Folder> = ({ name, children }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(true);
 
 	const toggleFolder = () => setIsOpen(!isOpen);
 
+	//TODO: use display none conditionaly instead of removing from dom
 	return (
 		<ItemWrapper>
 			<FlexRow>
@@ -25,26 +30,9 @@ const FolderItem: FC<Folder> = ({ name, children }) => {
 					{name}
 				</Typography>
 			</FlexRow>
-
-			{isOpen && (
-				<ChildrenWrapper>
-					{(children || []).map((item: Item) =>
-						item.isFile ? (
-							<FileItem
-								name={item.name}
-								extension={item.extension}
-								key={item.name}
-							/>
-						) : (
-							<FolderItem
-								name={item.name}
-								children={item.children}
-								key={item.name}
-							/>
-						)
-					)}
-				</ChildrenWrapper>
-			)}
+			<ChildrenWrapper isvisible={isOpen.toString()}>
+				{children && <FileTree fileSctructure={children} />}
+			</ChildrenWrapper>
 		</ItemWrapper>
 	);
 };

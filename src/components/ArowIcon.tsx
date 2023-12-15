@@ -6,7 +6,6 @@ const ClosedArrow = styled(KeyboardArrowRightIcon)`
 	cursor: pointer;
 	position: absolute;
 	left: -15px;
-	color: #999;
 `;
 
 const OpenArrow = styled(KeyboardArrowRightIcon)`
@@ -14,6 +13,7 @@ const OpenArrow = styled(KeyboardArrowRightIcon)`
 	position: absolute;
 	left: -15px;
 	transform: rotateZ(90deg);
+	color: #999;
 `;
 
 interface IArowIcon {
@@ -23,9 +23,9 @@ interface IArowIcon {
 
 const ArowIcon: FC<IArowIcon> = ({ isOpen, onClick }) =>
 	isOpen ? (
-		<OpenArrow onClick={onClick} />
-	) : (
 		<ClosedArrow onClick={onClick} />
+	) : (
+		<OpenArrow onClick={onClick} />
 	);
 
 export default ArowIcon;

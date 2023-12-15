@@ -10,9 +10,17 @@ interface IFileTree {
 const FileTree: FC<IFileTree> = ({ fileSctructure }) => {
 	return fileSctructure.map((item: Item) =>
 		item.isFile ? (
-			<FileItem {...item} key={item.name} />
+			<FileItem
+				name={item.name}
+				extension={item.extension}
+				key={item.name}
+			/>
 		) : (
-			<FolderItem {...item} key={item.name} />
+			<FolderItem
+				name={item.name}
+				children={item.children}
+				key={item.name}
+			/>
 		)
 	);
 };

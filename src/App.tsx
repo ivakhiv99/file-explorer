@@ -29,7 +29,7 @@ function App() {
 				value,
 				'./'
 			);
-			setBreadCrumbs(breadCrumbs)
+			setBreadCrumbs(breadCrumbs);
 			setSearchResult(result);
 		} else {
 			setActiveSearch(false);
@@ -84,13 +84,13 @@ export default App;
 //
 // 3 - make folders with children clickable and display it's children---------// DONE
 //  3.1 - animate arrow icons for clickable folders (optional)
-//	3.2 - fix the issue with top folder being opened from opening all other folders down the tree
+//	3.2 - fix the issue with top folder being opened from opening all other folders down the tree    ----// DONE
 //
 // 4 - add search input for files and folders---------------------------------// DONE
 //  4.1 - debounce the input (optional)---------------------------------------// DONE
 //  4.2 - write a hook/func for searching files/folders-----------------------// DONE
 //	4.3 - display expanded folder if it has children--------------------------// DONE
-//  4.4 - display path to found file/folder as a seppareate string/component
+//  4.4 - display path to found file/folder as a seppareate string/component--// DONE
 //  4.5 - display "nothing found" message
 //	4.6 - add loader for search/(debounce?)
 //

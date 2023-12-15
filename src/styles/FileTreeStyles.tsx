@@ -1,14 +1,19 @@
 import { styled } from 'styled-components';
 
-const ItemWrapper = styled.div`
-	display: flex;
+interface WrapperProps {
+	isvisible?: string;
+}
+
+const ItemWrapper = styled.div<WrapperProps>`
+	//stupid react warnings
+	/* If you want to write it to the DOM, pass a string instead: isvisible="true" or isvisible={value.toString()} */
+	display: ${({ isvisible }) => (isvisible === 'true' ? 'none' : 'flex')};
 	flex-direction: column;
 	position: relative;
 `;
 
 const ChildrenWrapper = styled(ItemWrapper)`
 	padding-left: 30px;
-	/* background-color: #cbc9c9; */
 `;
 
 const FlexRow = styled.div`
