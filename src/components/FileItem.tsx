@@ -1,13 +1,8 @@
 import { FC } from 'react';
 import { File } from '../types/fileStructure';
-import { FlexRow, ItemWrapper } from '../styles/FileTreeStyles';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
+import { FlexRow, ItemWrapper } from '../styles/fileTreeStyles';
 import Typography from '@mui/material/Typography';
-import { styled } from 'styled-components';
-
-const StyledFileIcon = styled(InsertDriveFileIcon)`
-	margin: 0 5px;
-`;
+import { StyledFileIcon } from '../styles/styledIcons';
 
 const FileItem: FC<File> = ({ name, extension }) => (
 	<ItemWrapper>

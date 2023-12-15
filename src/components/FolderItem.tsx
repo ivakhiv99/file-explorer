@@ -1,19 +1,14 @@
 import { FC, useState } from 'react';
+import Typography from '@mui/material/Typography';
 import { Folder } from '../types/fileStructure';
 import {
 	ChildrenWrapper,
 	FlexRow,
 	ItemWrapper,
-} from '../styles/FileTreeStyles';
+} from '../styles/fileTreeStyles';
+import { StyledFolderIcon } from '../styles/styledIcons';
 import ArowIcon from './ArowIcon';
-import FolderIcon from '@mui/icons-material/Folder';
-import Typography from '@mui/material/Typography';
 import FileTree from './FileTree';
-import { styled } from 'styled-components';
-
-const StyledFolderIcon = styled(FolderIcon)`
-	margin: 0 5px;
-`;
 
 const FolderItem: FC<Folder> = ({ name, children }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);

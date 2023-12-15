@@ -1,26 +1,7 @@
-import Input from '@mui/material/Input';
-import { styled } from 'styled-components';
 import { useDebounce } from '../utils';
 import { FC } from 'react';
-import ClearIcon from '@mui/icons-material/Clear';
-
-const InputWrapper = styled.div`
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-`;
-
-const StyledInput = styled(Input)`
-	margin-bottom: 15px;
-	padding: 0 5px;
-`;
-
-const StyledClearIcon = styled(ClearIcon)`
-	position: relative;
-	right: 25px;
-	width: 15px;
-	height: 15px;
-`;
+import { StyledClearIcon } from '../styles/styledIcons';
+import { InputWrapper, StyledInput } from '../styles/fileTreeStyles';
 
 interface ISearch {
 	handler: (value: string) => void;
@@ -45,7 +26,7 @@ const Search: FC<ISearch> = ({ handler }) => {
 				value={inputValue}
 				onChange={handleChange}
 			/>
-			<StyledClearIcon onClick={handleClear} />
+			{inputValue.length > 0 && <StyledClearIcon onClick={handleClear} />}
 		</InputWrapper>
 	);
 };
