@@ -1,3 +1,5 @@
-# A link to GH-pages would be nice
+# Try it on [Github pages](https://ivakhiv99.github.io/file-explorer/)
 
-built with React + TypeScript + Vite
+### Or run locally with **npm run dev** command 
+
+#### built with React + TypeScript + Vite
