@@ -1,19 +1,41 @@
 import { Item } from '../types/fileStructure';
 
-const search = (data: Item[], query: string): Item | null => {
-	let res: Item | null = null;
+type ReturnType = {
+	result: Item | null;
+	breadCrumbs: string;
+};
+
+const search = (
+	data: Item[],
+	query: string,
+	breadCrumbs: string
+): ReturnType => {
+	let result: Item | null = null;
+	let path = breadCrumbs;
 
 	for (let item of data) {
-		if (item.name === query) {
-			res = item;
+		if (item.name.toLowerCase() === query.toLowerCase()) {
+			result = item;
+			path = path.concat(item.name);
+			if (item?.extension) {
+				path = path.concat(`.${item.extension}`);
+			}
 			break;
 		} else if (item.children) {
-			res = search(item.children, query);
-			if (res !== null) break;
+			const res = search(
+				item.children,
+				query,
+				path.concat(`${item.name}/`)
+			);
+			result = res.result;
+			if (result !== null) {
+				path = res.breadCrumbs;
+				break;
+			}
 		}
 	}
 
-	return res;
+	return { result, breadCrumbs: path };
 };
 
 export default search;

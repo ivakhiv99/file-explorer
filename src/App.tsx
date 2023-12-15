@@ -18,15 +18,24 @@ const FileTreeWrapper = styled.div`
 
 function App() {
 	const [searchResult, setSearchResult] = useState<Item | null>(null);
+	const [breadcrumbs, setBreadCrumbs] = useState<string>('');
 	const [activeSearch, setActiveSearch] = useState<boolean>(false);
 
 	const handleSearch = (value: string) => {
 		if (value.length) {
 			setActiveSearch(true);
-			const res = search(mockFileStructure, value);
-			setSearchResult(res);
-			console.log('search result', res);
-		} else setActiveSearch(false);
+			const { result, breadCrumbs } = search(
+				mockFileStructure,
+				value,
+				'./'
+			);
+			setBreadCrumbs(breadCrumbs)
+			setSearchResult(result);
+		} else {
+			setActiveSearch(false);
+			setSearchResult(null);
+			setBreadCrumbs('');
+		}
 	};
 
 	return (
@@ -46,6 +55,7 @@ function App() {
 			>
 				<FileTreeWrapper>
 					<Search handler={handleSearch} />
+					{activeSearch && <p>{breadcrumbs}</p>}
 					<FileTree
 						fileSctructure={
 							activeSearch && searchResult != null
@@ -82,7 +92,7 @@ export default App;
 //	4.3 - display expanded folder if it has children--------------------------// DONE
 //  4.4 - display path to found file/folder as a seppareate string/component
 //  4.5 - display "nothing found" message
-//	4.6 - add loader for search/(debounce?) 
+//	4.6 - add loader for search/(debounce?)
 //
 // 5 - style all of this
 //  5.1 - add linter and pritter (optional) ---------------------------------// kinda Done // still having isses forcing prettier to format on save
