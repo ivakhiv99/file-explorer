@@ -16,10 +16,10 @@ const StyledFolderIcon = styled(FolderIcon)`
 `;
 
 const FolderItem: FC<Folder> = ({ name, children }) => {
-	const [isOpen, setIsOpen] = useState<boolean>(true);
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	const toggleFolder = () => setIsOpen(!isOpen);
-
+	console.log({ name, isOpen });
 	return (
 		<ItemWrapper>
 			<FlexRow>

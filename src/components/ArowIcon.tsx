@@ -23,9 +23,9 @@ interface IArowIcon {
 
 const ArowIcon: FC<IArowIcon> = ({ isOpen, onClick }) =>
 	isOpen ? (
-		<ClosedArrow onClick={onClick} />
-	) : (
 		<OpenArrow onClick={onClick} />
+	) : (
+		<ClosedArrow onClick={onClick} />
 	);
 
 export default ArowIcon;
